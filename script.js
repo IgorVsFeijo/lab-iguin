@@ -32,48 +32,9 @@ var faixas = {
 var linhabase = document.getElementById("principal")
 var corpotabela = document.getElementById("corpotabela");
 
-function montarlinha(peneira, fxmin, fxmax){
-    var clone = linhabase.cloneNode(true);
 
-    clone.firstElementChild.innerHTML = peneira;
-
-    clone.childNodes[7].innerHTML = fxmin;
-
-    clone.childNodes[9].innerHTML = fxmax;
-
-    console.log(clone);
-    return clone;
-}
-
-function puxarfaixa(fxselecionada){
-    tipo = fxselecionada.split(" ")[0];
-    traco = fxselecionada.split(" ")[1];
-
-    corpotabela.innerHTML = "";
-
-    contador = 0;
-    var fxtipo = faixas[tipo]
-    var fxtipoetraco = faixas[tipo][traco]
-
-    fxtipo.peneiras.forEach(peneira => {
-        console.log(peneira);
-        var fxminima = fxtipoetraco.min[contador];
-        var fxmaxima = fxtipoetraco.max[contador];
-
-        corpotabela.appendChild(montarlinha(peneira, fxminima, fxmaxima));
-
-        //corpotabela.lastElementChild.id = "resultado" + contador;
-
-        contador++;
-
-    });
-
-};
-
-var entradafaixa = document.getElementById("faixa");
-
-entradafaixa.addEventListener("input", (valor)=>{
-    puxarfaixa(valor.target.value);
+function carregarfaixa(valor){
+    puxarfaixa(valor.value);
 
     console.log(document.getElementsByName("pesoretido"))
 
@@ -109,7 +70,57 @@ entradafaixa.addEventListener("input", (valor)=>{
 
         })
     }
+}
+
+function puxarfaixa(fxselecionada){
+    tipo = fxselecionada.split(" ")[0];
+    traco = fxselecionada.split(" ")[1];
+
+    corpotabela.innerHTML = "";
+
+    contador = 0;
+    var fxtipo = faixas[tipo]
+    var fxtipoetraco = faixas[tipo][traco]
+
+    fxtipo.peneiras.forEach(peneira => {
+        console.log(peneira);
+        var fxminima = fxtipoetraco.min[contador];
+        var fxmaxima = fxtipoetraco.max[contador];
+
+        corpotabela.appendChild(montarlinha(peneira, fxminima, fxmaxima));
+
+        //corpotabela.lastElementChild.id = "resultado" + contador;
+
+        contador++;
+
+    });
+
+};
+
+
+function montarlinha(peneira, fxmin, fxmax){
+    var clone = linhabase.cloneNode(true);
+
+    clone.firstElementChild.innerHTML = peneira;
+
+    clone.childNodes[7].innerHTML = fxmin;
+
+    clone.childNodes[9].innerHTML = fxmax;
+
+    console.log(clone);
+    return clone;
+}
+
+var entradafaixa = document.getElementById("faixa");
+
+entradafaixa.addEventListener("input", (valor)=>{
+    console.log(valor);
+    carregarfaixa(valor.target);
 })
 
+window.addEventListener("load", (valor)=>{
+    console.log(document.getElementById("faixa"))
+    carregarfaixa(document.getElementById("faixa"));
+})
 
 
