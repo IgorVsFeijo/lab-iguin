@@ -81,11 +81,16 @@ entradafaixa.addEventListener("click", (valor)=>{
 
         entrada.disabled = false;
 
-        entrada.addEventListener("change", (evento)=>{
+        entrada.addEventListener("input", (evento)=>{
+ 
+            valortotal = document.getElementById("total");
+
+            if(valortotal.value <= 0){
+                valortotal.value = window.prompt("Insira valor total");
+            }
 
             valorinicial = evento.target.value;
-            valortotal = document.getElementById("total").value;
-            percentualretido = valorinicial/valortotal*100
+            percentualretido = valorinicial/(valortotal.value)*100
 
             linhaevento = evento.target.parentElement.parentElement;
 
@@ -94,7 +99,7 @@ entradafaixa.addEventListener("click", (valor)=>{
             limitesuperior = linhaevento.childNodes[9].innerHTML;
             limiteinferior = linhaevento.childNodes[7].innerHTML;
 
-            console.log(percentualretido > limiteinferior && percentualretido < limitesuperior);
+            console.log(percentualretido >= limiteinferior && percentualretido <= limitesuperior);
 
             if(percentualretido > limiteinferior && percentualretido < limitesuperior){
                 linhaevento.childNodes[5].style.color = "blue";
