@@ -99,9 +99,8 @@ entradafaixa.addEventListener("input", (valor)=>{
             limitesuperior = linhaevento.childNodes[9].innerHTML;
             limiteinferior = linhaevento.childNodes[7].innerHTML;
 
-            console.log(percentualretido >= limiteinferior && percentualretido <= limitesuperior);
 
-            if(percentualretido > limiteinferior && percentualretido < limitesuperior){
+            if(percentualretido >= limiteinferior && percentualretido <= limitesuperior){
                 linhaevento.childNodes[5].style.color = "blue";
             }
             else{
