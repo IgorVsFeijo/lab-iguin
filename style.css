@@ -1,0 +1,38 @@
+table, th, td, tr{
+    border: 1px solid black !important;
+    padding: 8px;
+    text-align: center;
+}
+
+.no-padding{
+    padding: 0;
+}
+
+select{
+    margin: 0;
+}
+
+main{
+    padding: 0 !important;
+    box-sizing: border-box !important;
+}
+
+table{
+    width: 100%;
+    max-width: 992px;
+    margin: auto;
+}
+
+.entrada{
+    padding: 0;
+}
+
+.entrada > input{
+    width: 100%;
+    line-height: 2em;
+    border: 0;
+}
+
+.invisible{
+    display: none;
+}
