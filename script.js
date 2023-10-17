@@ -72,7 +72,7 @@ function puxarfaixa(fxselecionada){
 
 var entradafaixa = document.getElementById("faixa");
 
-entradafaixa.addEventListener("click", (valor)=>{
+entradafaixa.addEventListener("input", (valor)=>{
     puxarfaixa(valor.target.value);
 
     console.log(document.getElementsByName("pesoretido"))
