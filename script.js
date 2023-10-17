@@ -46,8 +46,8 @@ function carregarfaixa(valor){
  
             valortotal = document.getElementById("total");
 
-            if(valortotal.value <= 0){
-                valortotal.value = window.prompt("Insira valor total");
+            while(valortotal.value <= 0){
+                valortotal.value = Number(window.prompt("Insira valor total"));
             }
 
             valorinicial = evento.target.value;
