@@ -51,7 +51,7 @@ function carregarfaixa(valor){
             }
 
             valorinicial = evento.target.value;
-            percentualretido = valorinicial/(valortotal.value)*100
+            percentualretido = 100 - (valorinicial/(valortotal.value)*100)
 
             linhaevento = evento.target.parentElement.parentElement;
 
